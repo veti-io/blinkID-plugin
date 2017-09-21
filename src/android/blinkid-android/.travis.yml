@@ -1,0 +1,20 @@
+language: android
+sudo: false
+jdk:
+  - oraclejdk8
+android:
+    components:
+        - platform-tools
+        - tools
+        - build-tools-25.0.2
+        - android-25
+        - extra-android-m2repository
+script:
+    - cd BlinkIDDemo
+    - ./gradlew clean :BlinkIDDemo:assembleRelease
+    - ./gradlew clean :BlinkIDDemoCustomSegmentScan:assembleRelease
+    - ./gradlew clean :BlinkIDDemoCustomUI:assembleRelease
+    - ./gradlew clean :BlinkIDDetectorDemo:assembleRelease
+    - ./gradlew clean :BlinkIDDirectApiDemo:assembleRelease
+    - ./gradlew clean :BlinkIDRandomScanDemo:assembleRelease
+    - ./gradlew clean :BlinkIDImageListenerDemo:assembleRelease
